@@ -1,18 +1,20 @@
-const sideBarConfig = require("./sidebarConfig") 
+const sideBarConfig = require("./baseConfig/sidebarConfig") 
+const navConfig = require('./baseConfig/navConfig')
 
 module.exports = {
-  title: "前端大本营",
+  title: "忘带伞的阿离",
+  description: '',
+  head: [
+    ['link', {rel: 'icon', href: ''}]
+  ],
   themeConfig: {
     // logo: "/assets/img/bg.jpg",
     // 导航栏链接
-    nav: [
-      { text: "Home", link: "/" },
-      { text: "Guide", link: "/guide/" },
-      { text: "Github", link: "https://github.com/tiantingrui" },
-    ],
+    nav: navConfig,
     // sidebar: 'auto',
     sidebar: sideBarConfig,
-    lastUpdated: "Last Updated",
+    // lastUpdated: "Last Updated",
     smoothScroll: true, // string | boolean
   },
+  dest: 'dist'
 };

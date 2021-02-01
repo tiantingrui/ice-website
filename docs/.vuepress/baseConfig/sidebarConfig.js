@@ -8,7 +8,7 @@ module.exports = [
         path: '/js/base'
       },
       {
-        path: 'js进阶',
+        title: 'js进阶',
         path: '/js/advance'
       }
     ]

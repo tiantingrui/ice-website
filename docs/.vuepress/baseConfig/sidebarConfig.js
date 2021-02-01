@@ -1,5 +1,19 @@
 module.exports = [
   {
+    title: '深入浅出JavaScript',
+    path: '/js',
+    children: [
+      {
+        title: 'js基础',
+        path: '/js/base'
+      },
+      {
+        path: 'js进阶',
+        path: '/js/advance'
+      }
+    ]
+  },
+  {
     title: "Vue", // 必要的
     path: "/vue", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
     // collapsable: false, // 可选的, 默认值是 true,

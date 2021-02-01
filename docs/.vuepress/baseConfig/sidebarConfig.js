@@ -1,22 +1,4 @@
 module.exports = [
-  // {
-  //   title: '前端三剑客',
-  //   // collapsable: false,
-  //   children: [
-  //     {
-  //       title: 'HTML',
-  //       path: '/html'
-  //     },
-  //     {
-  //       title: 'CSS',
-  //       path: '/css'
-  //     },
-  //     {
-  //       title: 'JavaScript',
-  //       path: '/javascript'
-  //     }
-  //   ]
-  // },
   {
     title: "Vue", // 必要的
     path: "/vue", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
@@ -53,4 +35,28 @@ module.exports = [
       }
     ],
   },
+  {
+    title: '前端工程化',
+    path: '/front-project',
+    children: [
+      {
+        title: 'webpack',
+        path: '/front-project/webpack'
+      },
+      {
+        title: 'babel',
+        path: '/front-project/babel'
+      }
+    ]
+  },
+  {
+    title: '计算机网络',
+    path: '/network',
+    children: [
+      {
+        title: '一篇文章带你快速认知http',
+        path: '/network/http'
+      }
+    ]
+  }
 ];

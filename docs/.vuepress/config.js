@@ -16,5 +16,8 @@ module.exports = {
     // lastUpdated: "Last Updated",
     smoothScroll: true, // string | boolean
   },
-  dest: 'dist'
+  dest: 'dist',
+  plugins: [
+    "vuepress-plugin-cat"
+  ]
 };

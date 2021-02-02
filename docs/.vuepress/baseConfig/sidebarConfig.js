@@ -50,6 +50,44 @@ module.exports = [
     ],
   },
   {
+    title: 'Node',
+    path: '/node',
+    children: [
+      {
+        title: '数据类型',
+        path: '/node/dataType'
+      },
+      {
+        title: '工具库',
+        path: '/node/util'
+      },
+      {
+        title: '文件操作能力',
+        path: '/node/file'
+      },
+      {
+        title: '模块机制以及原理',
+        path: '/node/module'
+      },
+      {
+        title: '网络编程能力',
+        path: '/node/net'
+      },
+      {
+        title: '进程管理',
+        path: '/node/process'
+      },
+      {
+        title: '原生Web Server 实战',
+        path: '/node/web-server'
+      },
+      {
+        title: 'Koa',
+        path: '/node/koa'
+      }
+    ]
+  },
+  {
     title: '前端工程化',
     path: '/front-project',
     children: [

@@ -5,7 +5,7 @@ module.exports = {
   title: "忘带伞的阿离",
   description: '',
   head: [
-    ['link', {rel: 'icon', href: ''}]
+    ['link', {rel: 'icon', href: 'assets/favicon.ico'}]
   ],
   themeConfig: {
     // logo: "/assets/img/bg.jpg",

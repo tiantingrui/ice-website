@@ -1,16 +1,46 @@
 module.exports = [
   {
-    title: '深入浅出JavaScript',
+    title: 'JS基础（ECMA 262标准）',
     path: '/js',
     children: [
       {
-        title: 'js基础',
-        path: '/js/base'
+        title: '变量类型和计算',
+        path: '/js/type'
       },
       {
-        title: 'js进阶',
-        path: '/js/advance'
-      }
+        title: '原型和原型链',
+        path: '/js/proto'
+      },
+      {
+        title: '作用域和闭包',
+        path: '/js/range'
+      },
+      {
+        title: '异步和单线程',
+        path: '/js/async'
+      },
+    ]
+  },
+  {
+    title: 'JS异步编程',
+    path: '/js-async',
+    children: [
+      {
+        title: 'Event Loop',
+        path: '/js-async/loop'
+      },
+      {
+        title: 'promise 进阶',
+        path: '/js-async/promise'
+      },
+      {
+        title: 'async/await',
+        path: '/js-async/await'
+      },
+      {
+        title: '微任务&宏任务',
+        path: '/js-async/task'
+      },
     ]
   },
   {

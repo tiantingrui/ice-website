@@ -14,6 +14,32 @@ module.exports = [
     ]
   },
   {
+    title: 'JS-Web-API',
+    path: '/js-web-api',
+    children: [
+      {
+        title: 'DOM操作',
+        path: '/js-web-api/dom'
+      },
+      {
+        title: 'BOM操作',
+        path: '/js-web-api/bom'
+      },
+      {
+        title: '事件',
+        path: '/js-web-api/event'
+      },
+      {
+        title: 'ajax',
+        path: '/js-web-api/ajax'
+      },
+      {
+        title: '存储',
+        path: '/js-web-api/storage'
+      }
+    ]
+  },
+  {
     title: "Vue", // 必要的
     path: "/vue", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
     // collapsable: false, // 可选的, 默认值是 true,

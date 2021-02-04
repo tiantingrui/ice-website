@@ -166,5 +166,31 @@ module.exports = [
         path: '/network/http'
       }
     ]
+  },
+  {
+    title: '手写源码系列',
+    path: '/source-code',
+    children: [
+      {
+        title: '手写instanceof',
+        path: '/source-code/instanceof'
+      },
+      {
+        title: '实现数组的扁平化',
+        path: '/source-code/flat'
+      },
+      {
+        title: '实现深拷贝',
+        path: '/source-code/deepClone'
+      },
+      {
+        title: '手写bind',
+        path: '/source-code/bind'
+      },
+      {
+        title: '防抖和节流',
+        path: '/source-code/debounce'
+      }
+    ]
   }
 ];

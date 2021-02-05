@@ -6,7 +6,7 @@
 Function.prototype.bind2 = function() {
   const args = [].slice(arguments)
   const t = args.shift()
-  return () =< {
+  return () => {
     return this.apply(t, args)
   }
 }

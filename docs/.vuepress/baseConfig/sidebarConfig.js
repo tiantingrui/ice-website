@@ -192,5 +192,35 @@ module.exports = [
         path: '/source-code/debounce'
       }
     ]
+  },
+  {
+    title: '设计模式',
+    path: '/design-model',
+    children: [
+      {
+        title: '面向对象',
+        path: '/design-model/toObj'
+      },
+      {
+        title: '设计原则',
+        path: '/design-model/principle'
+      },
+      {
+        title: '工厂模式',
+        path: '/design-model/factory'
+      },
+      {
+        title: '单例模式',
+        path: '/design-model/single'
+      },
+      {
+        title: '装饰器模式',
+        path: '/design-model/decorator'
+      },
+      {
+        title: '观察者模式',
+        path: '/design-model/observe'
+      }
+    ]
   }
 ];

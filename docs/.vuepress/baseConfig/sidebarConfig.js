@@ -222,5 +222,39 @@ module.exports = [
         path: '/design-model/observe'
       }
     ]
+  },
+  {
+    title: '数据结构与算法',
+    path: '/algorithms',
+    children: [
+      {
+        title: '数组与字符串',
+        path: '/algorithms/array'
+      },
+      {
+        title: '栈',
+        path: '/algorithms/stack'
+      },
+      {
+        title: '队列',
+        path: '/algorithms/queue'
+      },
+      {
+        title: '链表',
+        path: '/algorithms/linked-list'
+      },
+      {
+        title: '二叉树',
+        path: '/algorithms/tree'
+      },
+      {
+        title: '排序算法',
+        path: '/algorithms/sort'
+      },
+      {
+        title: '动态规划',
+        path: '/algorithms/dynamic-programming'
+      }
+    ]
   }
 ];

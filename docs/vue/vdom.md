@@ -56,4 +56,7 @@
 - tag不相同，则直接删掉重建，不再深度比较
 - tag 和 key ，两者都相同，则认为是相同节点，不再深度比较
 
-[![image-20210117210523971](https://github.com/tiantingrui/up_2021/raw/main/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/Vue%E3%80%81React%E3%80%81Webpack/Vue%E5%8E%9F%E7%90%86/img/image-20210117210523971.png)](https://github.com/tiantingrui/up_2021/blob/main/前端面试题/Vue、React、Webpack/Vue原理/img/image-20210117210523971.png)
+![image-20210208112654143](./img/image-20210208112654143.png)
+
+![image-20210208112632679](./img/image-20210208112632679.png)
+

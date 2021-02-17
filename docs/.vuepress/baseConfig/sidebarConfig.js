@@ -116,6 +116,10 @@ module.exports = [
       {
         title: 'Vue3 响应式原理',
         path: '/vue/proxy'
+      },
+      {
+        title: 'Vue 总结',
+        path: '/vue/topic'
       }
     ],
   },

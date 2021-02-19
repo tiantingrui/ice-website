@@ -274,5 +274,15 @@ module.exports = [
         path: '/algorithms/dynamic-programming'
       }
     ]
+  },
+  {
+    title: '面试总结',
+    path: '/interview',
+    children: [
+      {
+        title: '21-02-19',
+        path: '/interview/21-02-19'
+      }
+    ]
   }
 ];

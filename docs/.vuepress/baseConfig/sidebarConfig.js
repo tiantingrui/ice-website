@@ -286,6 +286,10 @@ module.exports = [
       {
         title: '21-02-20',
         path: '/interview/21-02-20'
+      },
+      {
+        title: '21-02-22',
+        path: '/interview/21-02-22'
       }
     ]
   }

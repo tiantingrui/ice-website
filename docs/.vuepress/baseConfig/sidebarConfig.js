@@ -124,6 +124,16 @@ module.exports = [
     ],
   },
   {
+    title: 'React',
+    path: '/react',
+    children: [
+      {
+        title: 'jsx',
+        path: '/react/jsx'
+      }
+    ]
+  },
+  {
     title: 'Node',
     path: '/node',
     children: [
@@ -298,6 +308,10 @@ module.exports = [
       {
         title: '21-02-24',
         path: '/interview/21-02-24'
+      },
+      {
+        title: '21-02-25',
+        path: '/interview/21-02-25'
       }
     ]
   }

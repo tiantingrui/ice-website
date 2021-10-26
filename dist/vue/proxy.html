@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue3 - Proxy 实现响应式 | 忘带伞的阿离</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="assets/favicon.ico">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e5597b9c.css" as="style"><link rel="preload" href="/assets/js/app.3b0a3e49.js" as="script"><link rel="preload" href="/assets/js/2.19ec9ae7.js" as="script"><link rel="preload" href="/assets/js/80.6dc359a8.js" as="script"><link rel="prefetch" href="/assets/js/10.715a2627.js"><link rel="prefetch" href="/assets/js/11.47e96749.js"><link rel="prefetch" href="/assets/js/12.9ecc46a2.js"><link rel="prefetch" href="/assets/js/13.172a9863.js"><link rel="prefetch" href="/assets/js/14.2bfff740.js"><link rel="prefetch" href="/assets/js/15.3c00d609.js"><link rel="prefetch" href="/assets/js/16.822b1be9.js"><link rel="prefetch" href="/assets/js/17.e73c455e.js"><link rel="prefetch" href="/assets/js/18.e9b892c6.js"><link rel="prefetch" href="/assets/js/19.bc3515c1.js"><link rel="prefetch" href="/assets/js/20.cbf1914e.js"><link rel="prefetch" href="/assets/js/21.146329ca.js"><link rel="prefetch" href="/assets/js/22.8b901dd2.js"><link rel="prefetch" href="/assets/js/23.1860a1f8.js"><link rel="prefetch" href="/assets/js/24.aa28c18f.js"><link rel="prefetch" href="/assets/js/25.397a36fb.js"><link rel="prefetch" href="/assets/js/26.7faed0cd.js"><link rel="prefetch" href="/assets/js/27.61a37b19.js"><link rel="prefetch" href="/assets/js/28.ed57d33e.js"><link rel="prefetch" href="/assets/js/29.23de2ec9.js"><link rel="prefetch" href="/assets/js/3.127cda67.js"><link rel="prefetch" href="/assets/js/30.f98635ec.js"><link rel="prefetch" href="/assets/js/31.71fb8045.js"><link rel="prefetch" href="/assets/js/32.206af137.js"><link rel="prefetch" href="/assets/js/33.9175747b.js"><link rel="prefetch" href="/assets/js/34.76cee98a.js"><link rel="prefetch" href="/assets/js/35.6022a987.js"><link rel="prefetch" href="/assets/js/36.342b5c41.js"><link rel="prefetch" href="/assets/js/37.5c3b31c3.js"><link rel="prefetch" href="/assets/js/38.22e79235.js"><link rel="prefetch" href="/assets/js/39.782a1fe2.js"><link rel="prefetch" href="/assets/js/4.8c2a2ecd.js"><link rel="prefetch" href="/assets/js/40.96127710.js"><link rel="prefetch" href="/assets/js/41.bf48f5bc.js"><link rel="prefetch" href="/assets/js/42.d7bd0a17.js"><link rel="prefetch" href="/assets/js/43.1d0eb0b5.js"><link rel="prefetch" href="/assets/js/44.b7b61a9e.js"><link rel="prefetch" href="/assets/js/45.e14d1d87.js"><link rel="prefetch" href="/assets/js/46.7a8aad82.js"><link rel="prefetch" href="/assets/js/47.7fdfa701.js"><link rel="prefetch" href="/assets/js/48.65126d0c.js"><link rel="prefetch" href="/assets/js/49.f6f53b16.js"><link rel="prefetch" href="/assets/js/5.08964560.js"><link rel="prefetch" href="/assets/js/50.7c4fe688.js"><link rel="prefetch" href="/assets/js/51.7bac877c.js"><link rel="prefetch" href="/assets/js/52.9a117bce.js"><link rel="prefetch" href="/assets/js/53.79312f7f.js"><link rel="prefetch" href="/assets/js/54.3593b6d7.js"><link rel="prefetch" href="/assets/js/55.95c24bc6.js"><link rel="prefetch" href="/assets/js/56.41fb255e.js"><link rel="prefetch" href="/assets/js/57.b686fbc5.js"><link rel="prefetch" href="/assets/js/58.a1f7bd4d.js"><link rel="prefetch" href="/assets/js/59.b42c81f4.js"><link rel="prefetch" href="/assets/js/6.b58d196a.js"><link rel="prefetch" href="/assets/js/60.a2568988.js"><link rel="prefetch" href="/assets/js/61.702a6eb3.js"><link rel="prefetch" href="/assets/js/62.5a7b80e5.js"><link rel="prefetch" href="/assets/js/63.5b372b3f.js"><link rel="prefetch" href="/assets/js/64.1ad0d3c2.js"><link rel="prefetch" href="/assets/js/65.c642ad7f.js"><link rel="prefetch" href="/assets/js/66.db95d573.js"><link rel="prefetch" href="/assets/js/67.ab471c3b.js"><link rel="prefetch" href="/assets/js/68.c388d7ce.js"><link rel="prefetch" href="/assets/js/69.f05c8a12.js"><link rel="prefetch" href="/assets/js/7.c734d372.js"><link rel="prefetch" href="/assets/js/70.2b834111.js"><link rel="prefetch" href="/assets/js/71.e90df556.js"><link rel="prefetch" href="/assets/js/72.fe53969f.js"><link rel="prefetch" href="/assets/js/73.bc851622.js"><link rel="prefetch" href="/assets/js/74.e0913b28.js"><link rel="prefetch" href="/assets/js/75.c46a8879.js"><link rel="prefetch" href="/assets/js/76.9306ea0e.js"><link rel="prefetch" href="/assets/js/77.dc1895b9.js"><link rel="prefetch" href="/assets/js/78.d10ba194.js"><link rel="prefetch" href="/assets/js/79.1bb8e196.js"><link rel="prefetch" href="/assets/js/8.89d3e99f.js"><link rel="prefetch" href="/assets/js/81.4c14d22b.js"><link rel="prefetch" href="/assets/js/82.feaaab26.js"><link rel="prefetch" href="/assets/js/9.c2c6d501.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e5597b9c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">忘带伞的阿离</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  web前端
+</a></div><div class="nav-item"><a href="https://github.com/tiantingrui" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link router-link-active">
+  web前端
+</a></div><div class="nav-item"><a href="https://github.com/tiantingrui" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/html-css" class="sidebar-heading clickable"><span>html &amp; css</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/js" class="sidebar-heading clickable"><span>JS基础（ECMA 262标准）</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/js-async" class="sidebar-heading clickable"><span>JS异步编程</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/js-web-api" class="sidebar-heading clickable"><span>JS-Web-API</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/vue" class="sidebar-heading clickable router-link-active open"><span>Vue</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/mvvm.html" class="sidebar-link">什么是MVVM</a></li><li><a href="/vue/observe.html" class="sidebar-link">Vue响应式</a></li><li><a href="/vue/vdom.html" class="sidebar-link">vdom</a></li><li><a href="/vue/diff.html" class="sidebar-link">深入diff算法</a></li><li><a href="/vue/compiler.html" class="sidebar-link">模板编译</a></li><li><a href="/vue/router.html" class="sidebar-link">前端路由原理</a></li><li><a href="/vue/proxy.html" aria-current="page" class="active sidebar-link">Vue3 响应式原理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vue/proxy.html#object-defineproperty" class="sidebar-link">Object.defineProperty</a></li><li class="sidebar-sub-header"><a href="/vue/proxy.html#proxy-实现响应式" class="sidebar-link">Proxy 实现响应式</a></li><li class="sidebar-sub-header"><a href="/vue/proxy.html#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/vue/topic.html" class="sidebar-link">Vue 总结</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/react" class="sidebar-heading clickable"><span>React</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/node" class="sidebar-heading clickable"><span>Node</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/front-project" class="sidebar-heading clickable"><span>前端工程化</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/network" class="sidebar-heading clickable"><span>计算机网络</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/source-code" class="sidebar-heading clickable"><span>手写源码系列</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/design-model" class="sidebar-heading clickable"><span>设计模式</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/algorithms" class="sidebar-heading clickable"><span>数据结构与算法</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/interview" class="sidebar-heading clickable"><span>面试总结</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue3-proxy-实现响应式"><a href="#vue3-proxy-实现响应式" class="header-anchor">#</a> Vue3 - Proxy 实现响应式</h1> <ul><li>对比Object.defineProperty</li> <li>Proxy实现响应式</li> <li>两者对比</li></ul> <h2 id="object-defineproperty"><a href="#object-defineproperty" class="header-anchor">#</a> Object.defineProperty</h2> <div class="language- extra-class"><pre class="language-text"><code>// 触发更新视图
+function updateView() {
+    console.log('视图更新')
+}
+
+// 重新定义数组原型
+const oldArrayProperty = Array.prototype
+// 创建新对象，原型指向 oldArrayProperty，再拓展新的方法不会影响原型，这样做避免污染全局原型
+const arrProto = Object.create(oldArrayProperty);
+['push', 'pop', 'shift', 'unshift'].forEach(methodName =&gt; {
+    arrProto[methodName] = function() {
+        updateView() // 触发视图更新
+        oldArrayProperty[methodName].call(this, ...arguments)
+        // Array.prototype[methodName].call(this, ...arguments)
+    }
+})
+// 重新定义属性，监听起来
+function defineReactive(target, key, value) {
+    // 深度监听，就是说如果value 是 个对象
+    observer(value)
+
+    // 核心API
+    Object.defineProperty(target, key, {
+        get() {
+            return value
+        },
+        set(newVal) {
+            if (newVal !== value) {
+                // 深度监听， 万一set 的值是一个 object，下次更新之后就会监听到
+                observe(newVal)
+
+                // 设置新值
+                // 注意， value 一直在闭包中，此处设置完之后，在get 时也是会获取最新的值
+                value = newVal
+
+                // 触发更新视图
+                updateView()
+            }
+        }
+    })
+}
+
+// 监听对象属性
+function observer(target) {
+    if (typeof target !== 'object' || target === null) {
+        // 不是对象或者数组
+        return target
+    }
+
+    if (Array.isArray(target)) {
+        target.__proto__ = arrProto
+    }
+
+    // 重新定义各个属性（for in 也可以遍历数组）
+    for (let key in target) {
+        defineReactive(target, key, target[key])
+    }
+}
+
+// 准备数据
+const data = {
+    name: 'terry',
+    age: 25,
+    info: {
+        base: '杭州'
+    },
+    list: [10, 20, 30]
+}
+
+// 监听数据
+observer(data)
+
+// 测试
+data.name = 'zmn'
+data.age = 24
+data.x = '100' // 新增属性，监听不到 -- 所以有 Vue.set
+delete data.name // 删除属性，监听不到 -- 所以有 Vue.delete
+data.info.base = '北京' // 深度监听
+data.list.push(40) // 监听数组
+</code></pre></div><h3 id="object-defineproperty-的缺点"><a href="#object-defineproperty-的缺点" class="header-anchor">#</a> Object.defineProperty 的缺点</h3> <ul><li>深度监听，需要递归到底，一次性计算量大</li> <li>无法监听新增属性/删除属性（Vue.set Vue.delete）</li> <li>无法原生监听数组，需要特殊处理</li></ul> <h2 id="proxy-实现响应式"><a href="#proxy-实现响应式" class="header-anchor">#</a> Proxy 实现响应式</h2> <ul><li>基本使用</li> <li>Reflect</li></ul> <h3 id="proxy-基本使用"><a href="#proxy-基本使用" class="header-anchor">#</a> Proxy 基本使用</h3> <div class="language- extra-class"><pre class="language-text"><code>const data = {
+    name: 'terry',
+    age: 25
+}
+
+// const data = ['a', 'b', 'c']
+
+const proxyData = new Proxy(data, {
+    get(target, key, receiver) {
+        // 只处理本身（非原型）的属性
+        const ownKeys = Reflect.ownKeys(target)
+        if (ownKeys.includes(key)) {
+            console.log('get', key)
+        }
+        const result = Reflect.get(target, key, receiver)
+        console.log('get', key)
+        return result // 返回结果
+    },
+    set(target, key, val, receiver) {
+        // 重复的数据不处理
+        const oldVal = target[key]
+        if (val === oldVal) {
+            return true
+        }
+        const result = Reflect.set(target, key, val, receiver)
+        console.log('set', key, val)
+        console.log('result', result)
+        return result // 是否式设置成功
+    },
+    deleteProperty(target, key) {
+        const result = Reflect.deleteProperty(target, key)
+        console.log('delete property', key)
+        console.log('result', result)
+        return result // 是否删除成功
+    }
+})
+</code></pre></div><h3 id="reflect-作用"><a href="#reflect-作用" class="header-anchor">#</a> Reflect 作用</h3> <ul><li>和Proxy能力一一对应</li> <li>规范化、标准化、函数式</li> <li>替代掉 Object 上的工具函数，让Object 更纯净</li></ul> <h3 id="proxy-实现响应式-2"><a href="#proxy-实现响应式-2" class="header-anchor">#</a> Proxy 实现响应式</h3> <ul><li>深度监听，性能更好</li> <li>可监听 新增/删除 属性</li> <li>可监听数组变化（原生支持数组变化）</li></ul> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <ul><li>Proxy 能 规避掉Object.defineProperty 的问题</li> <li>Proxy 无法兼容所有浏览器，无法polyfill</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vue/router.html" class="prev">
+        前端路由原理
+      </a></span> <span class="next"><a href="/vue/topic.html">
+        Vue 总结
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><div class="cat-container" data-v-a13867c0><canvas id="vuepress-cat" width="280" height="250" class="live2d" data-v-a13867c0></canvas></div></div></div>
+    <script src="/assets/js/app.3b0a3e49.js" defer></script><script src="/assets/js/2.19ec9ae7.js" defer></script><script src="/assets/js/80.6dc359a8.js" defer></script>
+  </body>
+</html>
